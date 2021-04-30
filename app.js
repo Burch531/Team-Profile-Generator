@@ -14,3 +14,25 @@ const render = require("./lib/htmlRenderer");
 const teamMembers = [];
 const emptyId = [];
 
+const questionsEmployee = [
+    {
+        type: "input",
+        name: "nameManager",
+        message: "What is the manager's name?"
+    },
+    {
+        type: "input",
+        name: "managerId",
+        message: "What is the manager's ID?"
+    },
+    {
+        type: "input",
+        name: "emailManager",
+        message: "What is the manager's email?"
+    },
+    {
+        type: "input",
+        name: "officeNumber",
+        message: "What is the manager's office number?"
+    }
+];
