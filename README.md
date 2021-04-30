@@ -1,1 +1,1 @@
-# Team-Profile-Generator
+# Team_Profile_Generator
