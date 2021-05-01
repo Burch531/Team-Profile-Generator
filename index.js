@@ -11,8 +11,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const teamMembers = [];
-const emptyId = [];
+const member = [];
+const teamId = [];
 
 const questionsEmployee = [
     {
@@ -41,8 +41,8 @@ function manager() {
     console.log("Let's build your team");
     inquirer.prompt(questionsEmployee).then(function(data){
         const manager = new Manager(data.nameManager, data.managerId, data.emailManager, data.officeNumber);
-        teamMembers.push(manager);
-        emptyId.push(data.managerId);
+        member.push(manager);
+        teamId.push(data.managerId);
         team();
     });
 };
@@ -92,8 +92,8 @@ function engineer() {
         }
     ]). then(function(data){
         const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
-        teamMembers.push(engineer);
-        emptyId.push(data.engineerId);
+        member.push(engineer);
+        teamId.push(data.engineerId);
         team();
     });
 };
@@ -122,8 +122,8 @@ function intern() {
         }
     ]). then(function(data){
         const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
-        teamMembers.push(intern);
-        emptyId.push(data.internId);
+        member.push(intern);
+        teamId.push(data.internId);
         team();
     });
 };
@@ -132,7 +132,7 @@ function outputTeam() {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+    fs.writeFileSync(outputPath, render(member), "utf-8");
 }
 
 manager();
