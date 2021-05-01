@@ -1,3 +1,5 @@
+// test for manager
+
 const Manager = require("../lib/Manager");
 
 

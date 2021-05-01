@@ -38,8 +38,7 @@ const questionsEmployee = [
 ];
 
 function manager() {
-    console.log("Let's build your team");
-    inquirer.prompt(questionsEmployee).then(function(data){
+      inquirer.prompt(questionsEmployee).then(function(data){
         const manager = new Manager(data.nameManager, data.managerId, data.emailManager, data.officeNumber);
         member.push(manager);
         teamId.push(data.managerId);
