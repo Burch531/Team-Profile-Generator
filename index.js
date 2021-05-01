@@ -1,7 +1,8 @@
+//Packages for this application
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
+//imported constructors
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -36,7 +37,7 @@ const questionsEmployee = [
         message: "What is the manager's office number?"
     }
 ];
-
+//manager function
 function manager() {
       inquirer.prompt(questionsEmployee).then(function(data){
         const manager = new Manager(data.nameManager, data.managerId, data.emailManager, data.officeNumber);
@@ -45,7 +46,7 @@ function manager() {
         team();
     });
 };
-
+//Team function
 function team() {
     inquirer.prompt([
         {
@@ -66,7 +67,7 @@ function team() {
         } else (outputTeam());
     });
 };
-
+//engineer function
 function engineer() {
     inquirer.prompt([
         {
@@ -96,7 +97,7 @@ function engineer() {
         team();
     });
 };
-
+//intern function
 function intern() {
     inquirer.prompt([
         {
@@ -126,7 +127,7 @@ function intern() {
         team();
     });
 };
-
+//output function uses path defined above to write to file
 function outputTeam() {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
